@@ -22,7 +22,7 @@ For **MacOS**
 
 I found [Karabiner](https://karabiner-elements.pqrs.org/) + [Goku](https://github.com/yqrashawn/GokuRakuJoudo) to be the best option for system-wide shortcuts, plus it seems to be quite explicitly configurable. [Here](https://gist.github.com/gsinclair/f4ab34da53034374eb6164698a0a8ace) is some example setup and some pitfalls discussed.
 
-Another option is to use IDE shortcuts, but you might get overlaps with some system `COMMAND + KEY` shortcuts, if you choose to use `LEFT COMMAND` to be `LAYER_SWITCH_KEY`. There is a workaround, switching `COMMAND` and `OPTION` keys inputs with each other, but it will be system-wide, so you'll need to get used to new keys positions. Also, you will need to disable special symbol inputs with `OPTION + KEY`, modifying `~/Library/Keyboard Layouts/`, [here](https://apple.stackexchange.com/questions/388552/macos-how-to-turn-off-option-key-printing-special-characters-in-vs-code-intell#answer-461625) is an easy solution I successfully tried.
+Another option is to use IDE shortcuts, but you might get overlaps with some system `COMMAND + KEY` shortcuts, if you choose to use `LEFT COMMAND` to be `LAYER_SWITCH_KEY`. There is a workaround, switching `COMMAND` and `OPTION` keys inputs with each other, but it will be system-wide, so you'll need to get used to new keys positions. Also, you will need to disable special symbol inputs with `OPTION + KEY`, modifying `~/Library/Keyboard Layouts/`, [here](https://apple.stackexchange.com/questions/388552/macos-how-to-turn-off-option-key-printing-special-characters-in-vs-code-intell#answer-461625) is an easy solution I tried.
 
 For **Windows**
 
