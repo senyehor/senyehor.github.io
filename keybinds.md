@@ -1,4 +1,4 @@
-# Still use arrows to navigate code? You are missing out
+Still use arrows to navigate code? You are missing out
 
 I am happy to introduce you to be the best approach to navigate edit code I found so far. It was a struggle that in order to use arrows, `HOME`, `END` and some other keys in their default position on a keyboard, because I had to move my hand too ofter. So, I came up with the idea to eliminate redundant hand movement as much as possible. The main purpose of the guide is to make you think in the right direction, feel free to alter any particular keybind as you like, but I will provide some foundation to build upon.
 
