@@ -32,6 +32,9 @@ return self.__filter(
 it will need to have some queryset, fields to filter againts and the value to filter. There are three parts worth paying attention. The first one is that we convert input fields to a list of `field__icontains`, they way char data could be filtered in Django. The second is creating a Q object, using dict unpacking. It could be only done this way, as Q requires passing arguments by name, so we can not pass
 `Q(field=value)`, because it would be filtering againts `user.field`, for example, not `user.name__icontains`, in case provided field is `'name__iconains'`, for example. Make sure you got this, as this is a very useful thing overall. And the last is that we chain multiple `Q`s in `for` cycle. It is effectively `Q() | Q(some_field_name__icontains=value) | Q(some_other_field_name__icontains=value) ... Q(the_last_field_name__icontains=value)`
 ```python
+from django.db.models import Q
+
+
 class QuerySetFieldsIcontainsFilter:
     def __init__(self, qs: QuerySet, fields_to_filter: Iterable[str]):
         self.__qs = qs
