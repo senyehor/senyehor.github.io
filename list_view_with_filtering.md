@@ -143,4 +143,4 @@ class QuerySetFieldsIcontainsFilter:
         )
         return self._qs.filter(q_filters)
 ```
-That is it for this article. I hope you learned something new from than, and thank you for reading. I am open to feedback, so leave a comment or write directly to senyehor@gmail.com.
+That is it for this article. I hope you learned something new from than, and thank you for reading. Here is [link](https://github.com/senyehor/energokodros_website/blob/acd0ad2436548ab34602bc703c81718bd8331994/utils/views/list_view_with_filtering.py) for the full code. I am open to feedback, so leave a comment or write directly to senyehor@gmail.com.
