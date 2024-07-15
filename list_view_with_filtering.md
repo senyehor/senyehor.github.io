@@ -82,7 +82,7 @@ class UserListView(QuerySetFieldsIcontainsFilterMixin, ListView):
 ```
 Some more functionallity was needed from the class I used, so let's go through that as well. Firs of all, I also needed to add ordering by fields, so it was implemented the following way. `fields_order_by_before_pk` attribute was added, and additional ordering logic is present now.  
 ```python
-class QuerySetFieldsIcontainsFilterPkOrderedMixin:
+class _QuerySetFieldsIcontainsFilterPkOrderedMixin:
     filter_fields: tuple[str, ...] = None
     fields_order_by_before_pk: tuple[str, ...] = tuple()
     __filter = QuerySetFieldsIcontainsFilter
@@ -99,7 +99,7 @@ And the last touch is to add a class that is "pre-mixed", adding an underscore t
 class _QuerySetFieldsIcontainsFilterPkOrderedMixin:
     filter_fields: tuple[str, ...] = None
     fields_order_by_before_pk: tuple[str, ...] = tuple()
-    __filter = QuerySetFieldsIcontainsFilter
+    __filter = _QuerySetFieldsIcontainsFilter
 
     def get_queryset(self: _ListViewWithMixinType) -> QuerySet:
         if search_value := self.__get_search_value():
@@ -128,9 +128,15 @@ class UserListView(ListViewWithFiltering):
     filter_fields = ('full_name', 'email')
     template_name = 'users/users_list.html'
 ```
+We can add the following method to 100% ensure that the mixin is used with a ListView, but I think that just by creating a pre-mixed class is enough. But in case you might need it, here it is.
+```python
+ def __check_used_properly(self: _ListViewWithMixinType):
+    if not issubclass(self.__class__, ListView):
+       raise ValueError('this mixin must be used with ListView')
+```
 I also would like to mention that there is an althernative way to produce `q_filters`. It requires understanding how functools.reduce work, makind the process much less explicit, so I would not recomment doing it, just a mention how it could be done as well.  
 ```python
-class QuerySetFieldsIcontainsFilter:
+class _QuerySetFieldsIcontainsFilter:
     def __init__(self, qs: QuerySet, fields_to_filter: Iterable[str]):
         self._qs = qs
         self._fields_to_filter = [f'{field}__icontains' for field in fields_to_filter]
